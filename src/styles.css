@@ -1,0 +1,151 @@
+body {
+  background-image: url("../images/sky-grass.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  font-family: "Roboto", sans-serif;
+  height: 105vh;
+  line-height: 1.5;
+}
+
+/*row {
+  margin-bottom: 0;
+}*/
+
+h1,
+h2 {
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 2;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+p {
+  background: rgb(110 159 173);
+  border: 1px solid rgb(16 30 38);
+  border-radius: 30px;
+  color: white;
+  font-size: 15px;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+}
+
+.container {
+  background: rgb(130 173 182);
+  background-image: url("../images/sky-grass.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid rgb(16 30 38);
+  border-radius: 30px;
+  box-sizing: content-box;
+  display: block;
+  height: 100vh;
+  font-size: 17px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+.input-group {
+  margin: 10px 10px;
+}
+.form-control {
+  border: 1px solid rgb(16 30 38);
+}
+
+.btn-outline-secondary {
+  background: rgb(110 159 173);
+  border: 1px solid rgb(16 30 38);
+  padding: 8px 10px;
+}
+
+.btn-outline-secondary:hover {
+  background: rgb(70 131 152);
+  border: 1px solid rgb(70 131 152);
+}
+
+.fa-magnifying-glass {
+  color: black;
+}
+.fa-location-dot {
+  color: red;
+}
+
+.input-data {
+  border: 1px solid rgb(16 30 38);
+  border-radius: 30px;
+  box-sizing: border-box;
+  display: block;
+  margin: 80px 0px;
+  max-width: 700px;
+  padding: 20px 20px;
+}
+
+.city-temperature,
+.humidity-wind,
+.five-days {
+  list-style-type: none;
+  margin: 0 auto;
+  vertical-align: top;
+}
+.head,
+.icon,
+.info-day {
+  color: black;
+  display: inline-block;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.five-days {
+  border: 1px solid rgb(16 30 38);
+  border-radius: 30px;
+  box-sizing: content-box;
+  display: block;
+  margin: 10px;
+  max-width: 100px;
+  padding: 10px 10px;
+}
+.day,
+.weather,
+.icons,
+.temperature {
+  line-height: 1;
+  text-align: center;
+}
+
+.weather,
+.temperature {
+  font-size: 15px;
+}
+
+.week,
+.variable-data {
+  margin: 0 auto;
+  padding: 0px;
+  text-align: center;
+}
+
+.celsius,
+.fahrenheit {
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: default;
+}
+
+.celsius:hover,
+.fahrenheit:hover {
+  color: #1369e9;
+  cursor: pointer;
+  text-decoration: underline;
+}

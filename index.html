@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather forecast</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/cafc9b4b07.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-forecast">
+        <div class="row variable-data align-items-center">
+          <div class="col-2"></div>
+          <div class="col-3"></div>
+          <div class="col-1"></div>
+          <div class="col">
+            <form id="enter-a-city">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Type a city ..."
+                  aria-label="Type a city ... with two button addons"
+                  id="input-city"
+                />
+                <button
+                  id="searchButton"
+                  class="btn btn-outline-secondary"
+                  type="button"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button
+                  id="navigatorButton"
+                  class="btn btn-outline-secondary"
+                  type="button"
+                >
+                  <i class="fa-solid fa-location-dot"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="input-data">
+          <div class="row city-temperature align-items-center">
+            <div class="col head">
+              <h1></h1>
+              <h2>
+                <span id="temperature-head"></span>
+                <span id="celsius-fahrenheit">
+                  <a href="#" class="celsius" id="celsius-link">°C</a> /
+                  <a href="#" class="fahrenheit" id="fahrenheit-link">°F</a>
+                </span>
+              </h2>
+            </div>
+            <div class="col icon">
+              <img src="images/sun.png" alt="" width="200" />
+            </div>
+            <div class="col info-day">
+              <ul class="humidity-wind">
+                <li id="description">SUNNY</li>
+                <li>Humidity: <span id="humidity"> 26 </span>%</li>
+                <li>Wind: <span id="wind">2 </span> m/s</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row next-days">
+          <div class="col week">
+            <ul class="five-days">
+              <li class="day"><h3>Monday</h3></li>
+              <li class="weather">Sunny</li>
+              <li class="icons">
+                <img src="images/sun.png" alt="" width="100" />
+              </li>
+              <li class="temperature">31°C/16°C</li>
+            </ul>
+          </div>
+          <div class="col week">
+            <ul class="five-days">
+              <li class="day"><h3>Tuesday</h3></li>
+              <li class="weather">Light rain</li>
+              <li><img src="images/light rain.png" alt="" width="100" /></li>
+              <li class="temperature">31°C/18°C</li>
+            </ul>
+          </div>
+          <div class="col week">
+            <ul class="five-days">
+              <li class="day"><h3>Wednesday</h3></li>
+              <li class="weather">Sun</li>
+              <li><img src="images/sun.png" alt="" width="100" /></li>
+              <li class="temperature">28°C/16°C</li>
+            </ul>
+          </div>
+          <div class="col week">
+            <ul class="five-days">
+              <li class="day"><h3>Thursday</h3></li>
+              <li class="weather">Few clouds</li>
+              <li>
+                <img src="images/Few clouds.png" alt="" width="100" />
+              </li>
+              <li class="temperature">28°C/17°C</li>
+            </ul>
+          </div>
+          <div class="col week">
+            <ul class="five-days">
+              <li class="day"><h3>Friday</h3></li>
+              <li class="weather">Cloudy</li>
+              <li>
+                <img src="images/Cloudy.png" alt="" width="100" />
+              </li>
+              <li class="temperature">29°C/18°C</li>
+            </ul>
+          </div>
+        </div>
+        <footer>
+          <p class="footer">Coded by Natalie Dub</p>
+        </footer>
+      </div>
+    </div>
+    <script src="src/java.js"></script>
+  </body>
+</html>
