@@ -9,7 +9,8 @@ function formatDate(todayDate) {
     "Saturday",
   ];
   let day = days[todayDate.getDay()];
-  document.querySelector(".col-2").innerHTML = `${day}`;
+  let varDay = document.querySelector(".col-2");
+  varDay.innerHTML = `${day}`;
 
   let date = addZero(todayDate.getDate());
   let months = [
@@ -62,16 +63,17 @@ function handleSubmit(event) {
 }
 
 function showCurrentTemperature(response) {
-  document.querySelector(
-    "h1"
-  ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  document.querySelector("#temperature-head").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = response.data.wind.speed;
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].description;
+  let h1 = document.querySelector("h1");
+  let headTemperature = document.querySelector("#temperature-head");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let description = document.querySelector("#description");
+
+  h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  headTemperature.innerHTML = Math.round(response.data.main.temp);
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = response.data.wind.speed;
+  description.innerHTML = response.data.weather[0].description;
 }
 
 let enterCityForm = document.querySelector("#enter-a-city");
