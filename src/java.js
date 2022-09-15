@@ -63,17 +63,23 @@ function handleSubmit(event) {
 }
 
 function showCurrentTemperature(response) {
-  let h1 = document.querySelector("h1");
+  console.log(response.data);
+  let searchCityCountry = document.querySelector("h1");
   let headTemperature = document.querySelector("#temperature-head");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   let description = document.querySelector("#description");
+  let iconHead = document.querySelector("#icon");
 
-  h1.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+  searchCityCountry.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   headTemperature.innerHTML = Math.round(response.data.main.temp);
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = response.data.wind.speed;
   description.innerHTML = response.data.weather[0].description;
+  iconHead.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let enterCityForm = document.querySelector("#enter-a-city");
