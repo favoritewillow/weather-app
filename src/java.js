@@ -71,7 +71,7 @@ function showCurrentTemperature(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   document.querySelector("#description").innerHTML =
-    response.data.weather[0].description.toLocaleUpperCase();
+    response.data.weather[0].description;
 }
 
 let enterCityForm = document.querySelector("#enter-a-city");
