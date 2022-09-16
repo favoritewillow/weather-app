@@ -62,6 +62,26 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function formatMonth(timestamp) {
+  let todayDate = new Date(timestamp * 1000);
+  let month = todayDate.getMonth();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  return months[month];
+}
+
 function searchCity(city) {
   let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
