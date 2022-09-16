@@ -38,6 +38,16 @@ p {
 li {
   list-style-type: none;
 }
+#description::first-letter {
+  text-transform: capitalize;
+}
+
+#humidity,
+#wind,
+.lastUpdate {
+  color: black;
+  opacity: 0.8;
+}
 
 .container {
   background: rgb(130 173 182);
@@ -91,10 +101,9 @@ li {
 }
 
 .city-temperature,
-.humidity-wind:first-letter,
-.five-days:first-letter {
+.humidity-wind,
+.five-days {
   margin: 0 auto;
-  text-transform: capitalize;
   vertical-align: top;
 }
 .head,
