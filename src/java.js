@@ -10,6 +10,8 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  let varTime = document.querySelector(".col-1");
+  varTime.innerHTML = `${hours}:${minutes}`;
 
   let days = [
     "Sunday",
@@ -22,6 +24,32 @@ function formatDate(timestamp) {
   ];
 
   let day = days[todayDate.getDay()];
+  let varDay = document.querySelector(".col-2");
+  varDay.innerHTML = `${day}`;
+
+  let date = todayDate.getDate();
+  if (date < 10) {
+    date = `0${date}`;
+  }
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "November",
+    "December",
+  ];
+
+  let month = months[todayDate.getMonth()];
+  let year = todayDate.getFullYear();
+  let varDate = document.querySelector(".col-3");
+  varDate.innerHTML = `${date} ${month} ${year}`;
 
   return `${day} ${hours}:${minutes}`;
 }
