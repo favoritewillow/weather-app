@@ -1,4 +1,16 @@
-function formatDate(todayDate) {
+function formatDate(timestamp) {
+  let todayDate = new Date(timestamp);
+
+  let hours = todayDate.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = todayDate.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
   let days = [
     "Sunday",
     "Monday",
@@ -8,47 +20,19 @@ function formatDate(todayDate) {
     "Friday",
     "Saturday",
   ];
+
   let day = days[todayDate.getDay()];
-  let varDay = document.querySelector(".col-2");
-  varDay.innerHTML = `${day}`;
 
-  let date = addZero(todayDate.getDate());
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "November",
-    "December",
-  ];
-  let month = months[todayDate.getMonth()];
-  let year = todayDate.getFullYear();
-
-  return `${date} ${month} ${year}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
-let todayDate = new Date();
-let varDateMonth = document.querySelector(".col-3");
-varDateMonth.innerHTML = formatDate(todayDate);
+function formatDay(timestamp) {
+  let todayDate = new Date(timestamp * 1000);
+  let day = todayDate.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-// add zero to the time and date
-function addZero(i) {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
+  return days[day];
 }
-
-let hours = addZero(todayDate.getHours());
-let minutes = addZero(todayDate.getMinutes());
-
-let varTime = document.querySelector(".col-1");
-varTime.innerHTML = `${hours}:${minutes}`;
 
 function searchCity(city) {
   let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
@@ -70,6 +54,7 @@ function showCurrentTemperature(response) {
   let wind = document.querySelector("#wind");
   let description = document.querySelector("#description");
   let iconHead = document.querySelector("#icon");
+  let dateElement = document.querySelector(".lastUpdate");
 
   searchCityCountry.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   headTemperature.innerHTML = Math.round(response.data.main.temp);
@@ -80,6 +65,7 @@ function showCurrentTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let enterCityForm = document.querySelector("#enter-a-city");

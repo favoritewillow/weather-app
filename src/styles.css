@@ -38,6 +38,7 @@ p {
 li {
   list-style-type: none;
 }
+
 .container {
   background: rgb(130 173 182);
   background-image: url("../images/sky-grass.jpg");
