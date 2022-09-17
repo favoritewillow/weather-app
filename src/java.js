@@ -104,8 +104,9 @@ function showCurrentTemperature(response) {
   let iconHead = document.querySelector("#icon");
   let dateElement = document.querySelector(".lastUpdate");
 
+  celsiusTemp = response.data.main.temp;
   searchCityCountry.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  headTemperature.innerHTML = Math.round(response.data.main.temp);
+  headTemperature.innerHTML = Math.round(celsiusTemp);
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = response.data.wind.speed;
   description.innerHTML = response.data.weather[0].description;
@@ -115,12 +116,6 @@ function showCurrentTemperature(response) {
   );
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
-
-let enterCityForm = document.querySelector("#enter-a-city");
-enterCityForm.addEventListener("submit", handleSubmit);
-
-let clickSearchButton = document.querySelector("#searchButton");
-clickSearchButton.addEventListener("click", handleSubmit);
 
 function showLocation(position) {
   let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
@@ -133,27 +128,36 @@ function navigatorClick(event) {
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 
+function showCelsius(event) {
+  event.preventDefault();
+  celsiusTemperature.classList.add("active");
+  fahrenheitTemperature.classList.remove("active");
+  let linkCelsius = document.querySelector("#temperature-head");
+  linkCelsius.innerHTML = Math.round(celsiusTemp);
+}
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let linkFahrenheit = document.querySelector("#temperature-head");
+  celsiusTemperature.classList.remove("active");
+  fahrenheitTemperature.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  linkFahrenheit.innerHTML = Math.round(fahrenheitTemp);
+}
+let celsiusTemp = null;
+let celsiusTemperature = document.querySelector("#celsius-link");
+celsiusTemperature.addEventListener("click", showCelsius);
+
+let fahrenheitTemperature = document.querySelector("#fahrenheit-link");
+fahrenheitTemperature.addEventListener("click", showFahrenheit);
+
+let enterCityForm = document.querySelector("#enter-a-city");
+enterCityForm.addEventListener("submit", handleSubmit);
+
+let clickSearchButton = document.querySelector("#searchButton");
+clickSearchButton.addEventListener("click", handleSubmit);
+
 let clickNavigatorButton = document.querySelector("#navigatorButton");
 clickNavigatorButton.addEventListener("click", navigatorClick);
 
 searchCity("Kyiv");
-
-/*function showCelsius(event) {
-  event.preventDefault();  
-  let celsiusTemp = Math.round(temperatureC);
-  let linkCelsius = document.querySelector("#temperature");
-  linkCelsius.innerHTML = `${celsiusTemp}`;
-}
-
-let celsiusTemperature = document.querySelector("#celsius-link");
-celsiusTemperature.addEventListener("click", showCelsius);
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = Math.round((temperatureC * 9) / 5 + 32);
-  let linkFahrenheit = document.querySelector("#temperature");
-  linkFahrenheit.innerHTML = `${fahrenheitTemp}`;
-}
-
-let fahrenheitTemperature = document.querySelector("#fahrenheit-link");
-fahrenheitTemperature.addEventListener("click", showFahrenheit);*/

@@ -34,6 +34,15 @@ p {
   text-align: center;
   width: 300px;
 }
+a {
+  color: #e65c0d;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a74005;
+  text-decoration: underline;
+}
 
 li {
   list-style-type: none;
@@ -45,8 +54,8 @@ li {
 #humidity,
 #wind,
 .lastUpdate {
-  color: black;
-  opacity: 0.8;
+  color: #e65c0d;
+  opacity: 0.9;
 }
 
 .container {
@@ -144,17 +153,11 @@ li {
   text-align: center;
 }
 
-.celsius,
-.fahrenheit {
+.weather-temperature .active {
   color: black;
-  text-decoration: none;
-  background-color: transparent;
   cursor: default;
 }
 
-.celsius:hover,
-.fahrenheit:hover {
-  color: #1369e9;
+.weather-temperature .active:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
