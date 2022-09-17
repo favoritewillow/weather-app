@@ -81,6 +81,35 @@ function formatMonth(timestamp) {
 
   return months[month];
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  
+  <div class="col week">
+  <ul class="five-days">
+  <li class="day"><h3>${day}</h3></li>
+  <li class="weather">Sunny</li>
+  <li class="icons">
+  <img src="images/sun.png" alt="" width="100" />
+  </li>
+  <li class="temperature">
+  <span class="maxTemperature">31</span>°C/<span
+  class="minTemperature"
+  >16</span
+  >°C
+  </li>
+  </ul>
+  </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 
 function searchCity(city) {
   let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
@@ -161,3 +190,4 @@ let clickNavigatorButton = document.querySelector("#navigatorButton");
 clickNavigatorButton.addEventListener("click", navigatorClick);
 
 searchCity("Kyiv");
+displayForecast();
