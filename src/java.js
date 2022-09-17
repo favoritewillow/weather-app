@@ -81,7 +81,8 @@ function formatMonth(timestamp) {
 
   return months[month];
 }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.list);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
@@ -122,9 +123,13 @@ function handleSubmit(event) {
   let city = document.querySelector("#input-city").value;
   searchCity(city);
 }
+function getForecast(coordinates) {
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showCurrentTemperature(response) {
-  console.log(response.data);
   let searchCityCountry = document.querySelector("h1");
   let headTemperature = document.querySelector("#temperature-head");
   let humidity = document.querySelector("#humidity");
@@ -144,6 +149,8 @@ function showCurrentTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  getForecast(response.data.coord);
 }
 
 function showLocation(position) {
@@ -190,4 +197,3 @@ let clickNavigatorButton = document.querySelector("#navigatorButton");
 clickNavigatorButton.addEventListener("click", navigatorClick);
 
 searchCity("Kyiv");
-displayForecast();
