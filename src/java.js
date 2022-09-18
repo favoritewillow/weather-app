@@ -22,8 +22,8 @@ function formatDate(timestamp) {
   ];
 
   let day = days[todayDate.getDay()];
-  let varDay = document.querySelector(".col-2");
-  varDay.innerHTML = `${day}`;
+  let varDay = document.querySelector(".currentDay");
+  varDay.innerHTML = "Wednesday";
 
   let date = todayDate.getDate();
   if (date < 10) {
@@ -46,7 +46,7 @@ function formatDate(timestamp) {
 
   let month = months[todayDate.getMonth()];
   let year = todayDate.getFullYear();
-  let varDate = document.querySelector(".col-3");
+  let varDate = document.querySelector(".currentDate");
   varDate.innerHTML = `${date} ${month} ${year}`;
 
   return `${day} ${hours}:${minutes}`;

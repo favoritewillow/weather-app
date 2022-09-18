@@ -29,12 +29,6 @@ h3 {
   background: rgb(184 201 195);
   border: 1px solid rgb(16 30 38);
   border-radius: 30px;
-  color: black;
-  font-size: 15px;
-  margin: 0 auto;
-  text-align: center;
-  width: 300px;
-}
 a {
   color: #e65c0d;
   text-decoration: none;
@@ -74,9 +68,14 @@ li {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px 20px;
-
   align-items: center;
 }
+.currentDay,
+.currentDate {
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .input-group {
   margin: 10px 10px;
 }
@@ -135,6 +134,13 @@ li {
   margin: 0 auto;
   max-width: 110px;
   padding: 10px 10px;
+
+  transition: all 200ms ease;
+  opacity: 1;
+}
+
+.five-days:hover {
+  opacity: 0.7;
 }
 .day,
 .weather,
@@ -159,6 +165,7 @@ li {
   padding: 5px 5px;
 }
 
+.week,
 .variable-data {
   margin: 0 auto;
   padding: 0px;
@@ -172,4 +179,15 @@ li {
 
 .weather-temperature .active:hover {
   cursor: pointer;
+}
+
+.footer {
+  background: rgb(184 201 195);
+  border: 1px solid rgb(16 30 38);
+  border-radius: 30px;
+  color: black;
+  font-size: 15px;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
 }
