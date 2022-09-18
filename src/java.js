@@ -10,8 +10,6 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let varTime = document.querySelector(".col-1");
-  varTime.innerHTML = `${hours}:${minutes}`;
 
   let days = [
     "Sunday",
@@ -57,7 +55,6 @@ function formatDate(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  console.log(day);
   let days = [
     "Sunday",
     "Monday",
@@ -67,7 +64,6 @@ function formatDay(timestamp) {
     "Friday",
     "Saturday",
   ];
-  console.log(days);
   return days[day];
 }
 

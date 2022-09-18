@@ -7,7 +7,8 @@ body {
   display: flex;
   flex-direction: row;
   font-family: "Roboto", sans-serif;
-  height: 105vh;
+  max-width: 100%;
+  margin: 0 auto;
   line-height: 1.5;
 }
 
@@ -24,11 +25,11 @@ h3 {
   text-align: center;
 }
 
-p {
-  background: rgb(110 159 173);
+.footer {
+  background: rgb(184 201 195);
   border: 1px solid rgb(16 30 38);
   border-radius: 30px;
-  color: white;
+  color: black;
   font-size: 15px;
   margin: 0 auto;
   text-align: center;
@@ -47,12 +48,7 @@ a:hover {
 li {
   list-style-type: none;
 }
-footer {
-  position: absolute;
-  bottom: 0;
-  margin-left: 200px;
-  margin-right: 200px;
-}
+
 #description::first-letter {
   text-transform: capitalize;
 }
@@ -74,11 +70,12 @@ footer {
   border-radius: 30px;
   box-sizing: content-box;
   display: block;
-  height: 100vh;
   font-size: 17px;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px 20px;
+
+  align-items: center;
 }
 .input-group {
   margin: 10px 10px;
@@ -152,10 +149,16 @@ footer {
 }
 
 .temperature {
+  background: rgb(184 201 195);
+  border-radius: 30px;
+  color: black;
   font-size: 15px;
+  font-weight: bold;
+  margin: 0 auto;
+  width: 100px;
+  padding: 5px 5px;
 }
 
-.week,
 .variable-data {
   margin: 0 auto;
   padding: 0px;
