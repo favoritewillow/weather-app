@@ -23,7 +23,7 @@ function formatDate(timestamp) {
 
   let day = days[todayDate.getDay()];
   let varDay = document.querySelector(".currentDay");
-  varDay.innerHTML = "Wednesday";
+  varDay.innerHTML = `${day}`;
 
   let date = todayDate.getDate();
   if (date < 10) {
@@ -70,6 +70,7 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   console.log(response.data);
   let dataForecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
 
@@ -100,6 +101,7 @@ function displayForecast(response) {
   `;
     }
   });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
   console.log(forecastHTML);
@@ -124,6 +126,7 @@ function handleSubmit(event) {
 }
 
 function showCurrentTemperature(response) {
+  console.log(response.data);
   let searchCityCountry = document.querySelector("h1");
   let headTemperature = document.querySelector("#temperature-head");
   let humidity = document.querySelector("#humidity");
@@ -162,8 +165,27 @@ function showCelsius(event) {
   event.preventDefault();
   celsiusTemperature.classList.add("active");
   fahrenheitTemperature.classList.remove("active");
+
+  let clickF = document.querySelector(".fahrenheit-link");
+  clickF.disabled = false;
+  let clickC = document.querySelector(".celsius-link");
+  clickC.disabled = true;
+
   let linkCelsius = document.querySelector("#temperature-head");
   linkCelsius.innerHTML = Math.round(celsiusTemp);
+
+  let temperatureMax = document.querySelectorAll(".maxTemperature");
+  let temperatureMin = document.querySelectorAll(".minTemperature");
+  temperatureMax.forEach(function (max) {
+    max.innerText = convertTempFToC(max.innerText);
+  });
+  temperatureMin.forEach(function (min) {
+    min.innerText = convertTempFToC(min.innerText);
+  });
+}
+
+function convertTempFToC(degree) {
+  return Math.round((degree - 32) / 1.8);
 }
 
 function showFahrenheit(event) {
@@ -171,9 +193,29 @@ function showFahrenheit(event) {
   let linkFahrenheit = document.querySelector("#temperature-head");
   celsiusTemperature.classList.remove("active");
   fahrenheitTemperature.classList.add("active");
+
+  let clickF = document.querySelector(".fahrenheit-link");
+  clickF.disabled = true;
+  let clickC = document.querySelector(".celsius-link");
+  clickC.disabled = false;
+
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   linkFahrenheit.innerHTML = Math.round(fahrenheitTemp);
+
+  let temperatureMax = document.querySelectorAll(".maxTemperature");
+  let temperatureMin = document.querySelectorAll(".minTemperature");
+  temperatureMax.forEach(function (max) {
+    max.innerText = convertTempCToF(max.innerText);
+  });
+  temperatureMin.forEach(function (min) {
+    min.innerText = convertTempCToF(min.innerText);
+  });
 }
+
+function convertTempCToF(degree) {
+  return Math.round((degree * 9) / 5 + 32);
+}
+
 let celsiusTemp = null;
 let celsiusTemperature = document.querySelector("#celsius-link");
 celsiusTemperature.addEventListener("click", showCelsius);

@@ -32,7 +32,7 @@ a {
 
 a:hover {
   color: #a74005;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 li {
@@ -95,6 +95,13 @@ li {
 }
 .fa-location-dot {
   color: red;
+}
+
+button.fahrenheit-link,
+button.celsius-link {
+  border: none;
+  background: transparent;
+  padding: auto;
 }
 
 .input-data {
