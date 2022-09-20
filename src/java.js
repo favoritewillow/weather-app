@@ -89,12 +89,10 @@ function displayForecast(response) {
   }@2x.png" alt="" width="100" />
   </li>
   <li class="temperature">
-  <span class="maxTemperature">${Math.round(
-    forecastDay.temp.max
-  )}</span>°C/<span
+  <span class="maxTemperature">${Math.round(forecastDay.temp.max)}</span>°/<span
   class="minTemperature"
   >${Math.round(forecastDay.temp.min)}</span
-  >°C
+  >°
   </li>
   </ul>
   </div>
