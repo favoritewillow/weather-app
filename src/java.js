@@ -148,6 +148,7 @@ function showCurrentTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   getForecast(response.data.coord);
+  showCelsius({ preventDefault: () => {} });
 }
 
 function showLocation(position) {
