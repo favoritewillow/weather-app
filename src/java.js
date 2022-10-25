@@ -231,4 +231,4 @@ clickSearchButton.addEventListener("click", handleSubmit);
 let clickNavigatorButton = document.querySelector("#navigatorButton");
 clickNavigatorButton.addEventListener("click", navigatorClick);
 
-searchCity("Nyvky");
+searchCity("Kyiv");
