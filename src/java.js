@@ -44,10 +44,10 @@ function formatDate(timestamp) {
     "December",
   ];
 
-  let month = months[todayDate.getMonth()];
+  let month = todayDate.getMonth();
   let year = todayDate.getFullYear();
   let varDate = document.querySelector(".currentDate");
-  varDate.innerHTML = `${date} ${month} ${year}`;
+  varDate.innerHTML = `${date}.${month}.${year}`;
 
   return `${day} ${hours}:${minutes}`;
 }
@@ -150,7 +150,7 @@ function showCurrentTemperature(response) {
 }
 
 function showLocation(position) {
-  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentTemperature);
 }
